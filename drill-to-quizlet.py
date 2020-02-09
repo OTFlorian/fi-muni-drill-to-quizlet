@@ -14,6 +14,9 @@ def save_file(file_name, contents):
 
 
 def parse_drill_dict(questions_dict):
+    TERM_DELIMITER = ";;;"
+    CARD_DELIMITER = "\n\n\n"
+    
     result = ""
     for question in questions_dict:
         right = ""
@@ -25,7 +28,7 @@ def parse_drill_dict(questions_dict):
             if answer['right']:
                 right = curr_answer
             curr_char = chr(ord(curr_char) + 1)
-        result += ";;;" + right + "\n\n\n"
+        result += TERM_DELIMITER + right + CARD_DELIMITER
     return result
 
 
