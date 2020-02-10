@@ -32,8 +32,7 @@ def parse_drill_dict(questions_dict):
     return result
 
 
-if __name__ == "__main__":
-    file_name = "questions_PB151.json"
+def drill_to_quizlet_file(file_name):
     json_dict = json_to_dict(file_name)
     parsed_drill = parse_drill_dict(json_dict)
     try:
@@ -41,3 +40,7 @@ if __name__ == "__main__":
     except IndexError:
         new_name = file_name
     save_file(new_name + "-quizlet.txt", parsed_drill)
+
+
+if __name__ == "__main__":
+    drill_to_quizlet_file("questions_PB151.json")
